@@ -1,0 +1,23 @@
+- name: Gather system information
+  hosts: linux_vdi_group
+  gather_facts: yes
+  tasks:
+  - name: Display Hostname
+    debug:
+     msg: "Hostname: {{ ansible_hostname }}"
+
+  - name: Display IP Address
+    debug:
+     msg: "IP Address: {{ ansible_default_ipv4.address }}"
+
+  - name: Display Major Linux Distribution Family
+    debug:
+     msg: "Linux Distribution {{ansible_os_family }}"
+
+  - name: Display Disk Size
+    debug:
+     msg: "Total RAM: {{ ansible_memtotal_mb }} MB"
+
+  - name: Display Number of Processor Cores
+    debug:
+     msg: "Processor Cores: {{ ansible_processor_cores }}"
